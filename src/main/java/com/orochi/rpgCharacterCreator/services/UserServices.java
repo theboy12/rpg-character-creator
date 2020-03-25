@@ -10,5 +10,5 @@ public interface UserServices {
 	
 	void verifyEmail(String email);
 	
-	void nickname(String nickname);
+	void verifyNickname(String nickname);
 }

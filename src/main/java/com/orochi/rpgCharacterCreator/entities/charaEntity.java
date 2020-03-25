@@ -18,7 +18,7 @@ import lombok.Data;
 @Table(name = "chara", schema = "rpgcharactercreator")
 @Entity
 
-public class charaEntity {
+public class CharaEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,23 +28,26 @@ public class charaEntity {
 	@Column(name = "class")
 	private String charClass;
 	
+	@Column(name = "name")
+	private String name;
+	
 	@Column(name = "vit")
-	private int vit;
+	private Integer vit;
 	
 	@Column(name = "agi")
-	private int agi;
+	private Integer agi;
 	
 	@Column(name = "dex")
-	private int dex;
+	private Integer dex;
 	
 	@Column(name = "str")
-	private int str;
+	private Integer str;
 	
 	@Column(name = "int")
-	private int intelli;
+	private Integer intelli;
 	
 	@Column(name = "luk")
-	private int luk;
+	private Integer luk;
 	
 	@ManyToOne
 	@JoinColumn(name = "userID")
