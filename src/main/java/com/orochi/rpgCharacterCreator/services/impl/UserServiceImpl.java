@@ -4,6 +4,7 @@ package com.orochi.rpgCharacterCreator.services.impl;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.orochi.rpgCharacterCreator.entities.UserEntity;
@@ -12,10 +13,11 @@ import com.orochi.rpgCharacterCreator.exceptions.UserAlreadyExistsException;
 import com.orochi.rpgCharacterCreator.persis.repository.UserRepository;
 import com.orochi.rpgCharacterCreator.services.UserServices;
 
+@Service
 public class UserServiceImpl implements UserServices{
 
 
-	UserRepository repoUser;
+	private UserRepository repoUser;
 
 	@Autowired
 	public UserServiceImpl(UserRepository repoUser) {
@@ -33,7 +35,7 @@ public class UserServiceImpl implements UserServices{
 			throw new LoginErrorException("Invalid nickname!"); 
 		}
 		
-		if(user.get().getPassword().equals(password)) {
+		if(!user.get().getPassword().equals(password)) {
 			throw new LoginErrorException("Invalid password!");
 		}
 		return user.get();

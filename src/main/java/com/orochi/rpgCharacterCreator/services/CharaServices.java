@@ -12,5 +12,7 @@ public interface CharaServices {
 	
 	List<CharaEntity> searchCharacter(CharaEntity characterFilter);
 	
+	void validate(CharaEntity character);
+	
 	void deleteCharacter(CharaEntity character);
 }
